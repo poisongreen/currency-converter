@@ -1,7 +1,5 @@
 package com.poisongreen.currency.converter.web;
 
-import java.util.Map;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +12,11 @@ public class LoginController {
     public static final String AUTH_STATUS_FAIL = "auth_fail";
 
     @RequestMapping("/")
+    public String defaultLink() {
+        return "login";
+    }
+
+    @RequestMapping("/login")
     public String login() {
         return "login";
     }

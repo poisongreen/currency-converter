@@ -23,7 +23,7 @@ public class LoginControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void login() throws Exception {
+    public void callDefaultLink() throws Exception {
         this.mockMvc.perform(get("/"))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -33,7 +33,17 @@ public class LoginControllerTest {
     }
 
     @Test
-    public void loginFail() throws Exception {
+    public void callLogin() throws Exception {
+        this.mockMvc.perform(get("/login"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(view().name("login"))
+                .andExpect(forwardedUrl("/WEB-INF/view/login.jsp"));
+
+    }
+
+    @Test
+    public void callLoginFail() throws Exception {
         this.mockMvc.perform(get("/login_fail"))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -43,7 +53,7 @@ public class LoginControllerTest {
     }
 
     @Test
-    public void logout() throws Exception {
+    public void callLogout() throws Exception {
         this.mockMvc.perform(get("/logout"))
                 .andDo(print())
                 .andExpect(status().isOk())

@@ -14,7 +14,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-
         auth.inMemoryAuthentication()
                 .withUser("user1").password("password").roles("USER1")
                 .and()
@@ -25,7 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/resources/**", "/", "/login", "/registration", "/login_fail", "/logout", "/user/dashboard").permitAll()
+                .antMatchers("/resources/**", "/", "/login", "/registration", "/login_fail", "/logout").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
