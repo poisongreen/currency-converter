@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.poisongreen.currency"})
-@Import(SecurityConfig.class)
+@Import({SecurityConfig.class, UserCredentialsConfig.class})
 public class MvcConfiguration extends WebMvcConfigurerAdapter
 {
     @Override
