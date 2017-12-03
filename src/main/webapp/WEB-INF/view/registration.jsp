@@ -21,11 +21,11 @@
             </div>
         </spring:bind>
 
-        <spring:bind path="firstname">
+        <spring:bind path="firstName">
             <h4>Name: </h4>
             <div>
-                <form:input type="text" path="firstname" placeholder="Firstname" autofocus="true"></form:input>
-                <form:errors path="firstname"></form:errors>
+                <form:input type="text" path="firstName" placeholder="Firstname" autofocus="true"></form:input>
+                <form:errors path="firstName"></form:errors>
             </div>
         </spring:bind>
 

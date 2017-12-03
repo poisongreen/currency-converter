@@ -1,31 +1,53 @@
 package com.poisongreen.currency.converter.model;
 
+import com.poisongreen.currency.converter.validation.PasswordMatches;
+import com.poisongreen.currency.converter.validation.ValidEmail;
+import com.poisongreen.currency.converter.validation.ValidPassword;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
-public class Registration {
+@PasswordMatches
+public class UserRegistration {
 
-    private Long id;
+    @NotNull(message = "{message.lastName.required}")
+    @Size(min = 1)
     private String surname;
-    private String firstname;
+
+    @NotNull(message = "{message.firstName.required}")
+    @Size(min = 1)
+    private String firstName;
+
+    @NotNull(message = "{message.login.required}")
+    @Size(min = 1)
     private String login;
+
+    @NotNull(message = "{message.password.required}")
+    @ValidPassword
     private String password;
+
+    @NotNull(message = "{message.passwordConfirm.required}")
+    @Size(min = 1)
     private String passwordConfirm;
+
+    @NotNull(message = "{message.email.required}")
+    @Size(min = 1)
+    @ValidEmail
     private String email;
+
+
     private Date birthDate;
+
     private String street;
+
     private String zipcode;
+
     private String city;
+
     private String country;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getSurname() {
+   public String getSurname() {
         return surname;
     }
 
@@ -33,12 +55,12 @@ public class Registration {
         this.surname = surname;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLogin() {
