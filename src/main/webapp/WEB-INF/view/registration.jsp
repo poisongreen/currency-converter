@@ -37,7 +37,7 @@
             </div>
         </spring:bind>
 
-        <spring:bind path="birthdate">
+        <spring:bind path="birthDate">
             <h4>Birth date: </h4>
             <div>
                 <form:input type="text" path="birthDate" placeholder="Birth date" autofocus="true"></form:input>

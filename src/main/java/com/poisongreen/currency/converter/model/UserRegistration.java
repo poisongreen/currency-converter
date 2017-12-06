@@ -3,6 +3,7 @@ package com.poisongreen.currency.converter.model;
 import com.poisongreen.currency.converter.validation.PasswordMatches;
 import com.poisongreen.currency.converter.validation.ValidEmail;
 import com.poisongreen.currency.converter.validation.ValidPassword;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -36,7 +37,7 @@ public class UserRegistration {
     @ValidEmail
     private String email;
 
-
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date birthDate;
 
     private String street;
