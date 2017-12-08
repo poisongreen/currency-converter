@@ -1,6 +1,8 @@
 package com.poisongreen.currency.converter.validation;
 
 
+import org.apache.commons.lang3.StringUtils;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.ArrayList;
@@ -17,6 +19,11 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
     public boolean isValid(final String password, final ConstraintValidatorContext context) {
         boolean valid = true;
         List<String> validaionMessagesList = new ArrayList<>();
+
+        if(StringUtils.isBlank(password)){
+            return false;
+        }
+
         if (password.length() > 15 || password.length() < 8) {
             validaionMessagesList.add("{message.password.wrong.length}");
             valid = false;

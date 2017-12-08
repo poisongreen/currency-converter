@@ -1,39 +1,24 @@
 package com.poisongreen.currency.converter.model;
 
-import com.poisongreen.currency.converter.validation.PasswordMatches;
 import com.poisongreen.currency.converter.validation.ValidEmail;
 import com.poisongreen.currency.converter.validation.ValidPassword;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
-@PasswordMatches
 public class UserRegistration {
 
-    @NotNull(message = "{message.lastName.required}")
-    @Size(min = 1)
     private String surname;
 
-    @NotNull(message = "{message.firstName.required}")
-    @Size(min = 1)
     private String firstName;
 
-    @NotNull(message = "{message.login.required}")
-    @Size(min = 1)
     private String login;
 
-    @NotNull(message = "{message.password.required}")
     @ValidPassword
     private String password;
 
-    @NotNull(message = "{message.passwordConfirm.required}")
-    @Size(min = 1)
     private String passwordConfirm;
 
-    @NotNull(message = "{message.email.required}")
-    @Size(min = 1)
     @ValidEmail
     private String email;
 
